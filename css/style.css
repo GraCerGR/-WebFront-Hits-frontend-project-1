@@ -1,0 +1,53 @@
+body{
+    margin: 0;
+    font-family: 'Arimo', sans-serif;
+}
+
+.container{
+    margin: 0px 166px;
+}
+
+.header{
+    background-image: url(/bg.jpg);
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.header-line{
+    padding-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.nav-item{
+    color:aliceblue;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    margin-right: 25px;
+}
+
+.nav-item:hover{
+    color:rgb(168, 168, 168);
+    text-decoration: none;
+}
+
+.cart{
+   background-color: rgb(255, 230, 0);
+   text-decoration: none;
+   display: flex;
+}
+
+.text-cart{ 
+   color:rgb(0, 0, 0);
+   padding: 10% 30px;
+   font-weight: 700;
+   font-size: 14px;
+}
+
+.cart:hover{
+    background-color: rgba(255, 236, 62, 0.993);
+    text-decoration: none;
+}

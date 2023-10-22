@@ -8,6 +8,8 @@ body{
 }
 
 .header{
+    position: relative;
+
     background-image: url(/bg.jpg);
     height: 100vh;
     background-repeat: no-repeat;
@@ -38,6 +40,8 @@ body{
    background-color: rgb(255, 230, 0);
    text-decoration: none;
    display: flex;
+   border-radius: 5px;
+   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.199);
 }
 
 .text-cart{ 
@@ -48,6 +52,56 @@ body{
 }
 
 .cart:hover{
-    background-color: rgba(255, 236, 62, 0.993);
+    background-color: rgba(255, 236, 62, 1);
     text-decoration: none;
+}
+
+.form{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(255, 230, 0);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.199);
+}
+
+.form h1{
+    margin: 30px 100px;
+    padding: 0;
+    text-align: center;
+    font-size: 30px;
+}
+
+.input-form{
+    margin: 15px 10px;
+}
+
+.input-form input{
+    padding: 10px;
+    width: 100%;
+    color: black;
+    background-color: rgb(189, 170, 0) ;
+    outline: none;
+    border: 1px solid;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+.input-form input[type="text"]:focus, .input-form input[type="password"]:focus{
+    border: 1px solid rgb(94, 94, 94);
+}
+
+.input-form input[type="submit"]{
+    color: rgb(0, 0, 0);
+    background-color: #d64c0c;
+    margin-top: 20px;
+    border: none;
+    transition: .3s;
+    font-weight: bold;
+}
+
+.input-form input[type="submit"]:hover{
+    background: #9e390b;
 }

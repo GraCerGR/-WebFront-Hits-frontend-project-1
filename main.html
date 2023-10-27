@@ -7,6 +7,31 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+
+    <!-- Bootstrap CSS --><!--p>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS --><!--p>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</p-->
+<!-- Styles -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
+<!-- Or for RTL support -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.rtl.min.css" />
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.0/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.full.min.js"></script>
+
+    
+  <script src="js/main.js"></script>
+
 </head>
 <body>
     <div class="header">
@@ -18,8 +43,7 @@
                 <div class="nav">
                     <a class="nav-item" href="main.html">МЕНЮ</a>
                     <a class="nav-item" href="@">ЗАКАЗЫ</a>
-                    <a class="nav-item" href="@">О НАС</a>
-                    <a class="nav-item" href="login.html">ВОЙТИ</a>
+                    <a class="nav-item" href="login/login.html">ВОЙТИ</a>  <!--p>login/login.html </p-->
                 </div>
                     <div>
                         <a href="#" class="cart">
@@ -33,6 +57,96 @@
                     </div>
             </div>
         </div>
+    
+
+
+    <div class="container container2 py-2">
+        <div class="container container3 ">
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                <div class="col px-2">
+                    <select class="form-select" aria-label="Пример выбора по умолчанию">
+                        <option selected>Все товары</option>
+                        <option value="1">WOK</option>
+                        <option value="2">Супы</option>
+                        <option value="3">Пицца</option>
+                      </select>
+                </div>
+                <div class="col px-2">
+                    <select class="form-select" aria-label="Пример выбора по умолчанию">
+                        <option value="1">по имени от А-Я</option>
+                        <option value="2">по имени от Я-А</option>
+                        <option value="3">по возрастанию цены</option>
+                        <option value="3">по убыванию цены</option>
+                        <option value="3">по возрастанию  рейтинга</option>
+                        <option value="3">по убыванию  рейтинга</option>
+                      </select>
+                </div>
+                <div class="col px-2">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                        <label class="form-check-label" for="flexSwitchCheckDefault">Показывать только вегетарианские</label>
+                      </div>
+                </div>
+                <div class="col d-flex justify-content-end px-2">
+                    <button type="button" class="btn btn-primary">Применить</button>
+                  </div>
+                </nav>
+        </div>
+        <div class="container py-2">
+            <div class="container">
+                <div class="row row-cols-1 row-cols-md-4 g-2">
+                  <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">WOK</h5>
+                          <h6 class="card-subtitle mb-2 text-body-secondary">Подзаголовок карточки</h6>
+                          <input type="range" class="form-range" id="customRange1">
+                          <p class="card-text">Небольшой пример текста, который должен основываться на названии карты и составлять основную часть содержимого карты.</p>
+                        </div>
+                          <div class="card-footer text-body-secondary">
+                            <div class="row align-items-start">
+                                <div class="col">
+                                  Цена - 250р
+                                </div>
+                                <div class="col">
+                                    <button type="button" class="btn btn-primary">В корзину</button>
+                                </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">WOK</h5>
+                          <h6 class="card-subtitle mb-2 text-body-secondary">Подзаголовок карточки</h6>
+                          <input type="range" class="form-range" id="customRange1">
+                          <p class="card-text">Небольшой пример текста, который должен основываться на названии карты и составлять основную часть содержимого карты.</p>
+                        </div>
+                          <div class="card-footer text-body-secondary">
+                            <div class="row align-items-start">
+                                <div class="col">
+                                  Цена - 250р
+                                </div>
+                                <div class="col">
+                                    <button type="button" class="btn btn-primary">В корзину</button>
+                                </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col">
+                    Колонка
+                  </div>
+                  <div class="col">
+                    Колонка
+                  </div>
+                </div>
+              </div>  
+        </div>
     </div>
+</div>
 </body>
 </html>

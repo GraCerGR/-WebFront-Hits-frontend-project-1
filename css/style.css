@@ -2,11 +2,12 @@ body{
     margin: 0;
     font-family: 'Arimo', sans-serif;
 }
-/*
+
 .container{
-    margin: 0px 166px;
+    transform: scale(0.67);
+    transform-origin: top;
 }
-*/
+
 .header{
     position: relative;
 
@@ -27,8 +28,18 @@ body{
     color:aliceblue;
     text-decoration: none;
     font-weight: 700;
-    font-size: 14px;
+    font-size: 24px;
     margin-right: 25px;
+}
+
+.item{
+    color:rgb(0, 0, 0);
+    text-decoration: none;
+}
+
+.item:hover{
+    color:rgb(0, 0, 0);
+    text-decoration: none;
 }
 
 .nav-item:hover{
@@ -48,7 +59,7 @@ body{
    color:rgb(0, 0, 0);
    padding: 10% 30px;
    font-weight: 700;
-   font-size: 14px;
+   font-size: 20px;
 }
 
 .cart:hover{
@@ -107,14 +118,41 @@ body{
 }
 
 .container2 {
-    margin-top: 25px;
     background-color: rgb(255, 230, 0);
     border-radius: 5px;
-    
+    margin-top: -25px;
   }
 
   .container3{
     
     border: 1px solid rgba(0, 0, 0, 0.103);
     border-radius: 5px;
+  }
+  
+  @media (max-width: 767px) {
+    .row-cols-1.row-cols-md-4.g-4 > .col {
+      flex-basis: 100%;
+      max-width: 100%;
+    }
+  }
+  
+  @media (min-width: 768px) and (max-width: 991px) {
+    .row-cols-1.row-cols-md-4.g-4 > .col {
+      flex-basis: 50%;
+      max-width: 50%;
+    }
+  }
+  
+  @media (min-width: 992px) and (max-width: 1399px) {
+    .row-cols-1.row-cols-md-4.g-4 > .col {
+      flex-basis: 33.33%;
+      max-width: 33.33%;
+    }
+  }
+  
+  @media (min-width: 1400px) {
+    .row-cols-1.row-cols-md-4.g-4 > .col {
+      flex-basis: 25%;
+      max-width: 25%;
+    }
   }

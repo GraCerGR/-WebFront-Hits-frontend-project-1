@@ -6,7 +6,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
 
     <!-- Bootstrap CSS --><!--p>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -29,8 +29,10 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.full.min.js"></script>
 
+
+
     
-  <script src="js/main.js"></script>
+  <script src="/main/main.js"></script>
 
 </head>
 <body>
@@ -38,17 +40,17 @@
         <div class="container">
             <div class="header-line">
                 <div class="header-logo">
-                    <img src="logo.png" width="100" height="100"; alt="">
+                    <img src="/logo.png" width="100" height="100"; alt="">
                 </div>
                 <div class="nav">
-                    <a class="nav-item" href="main.html">МЕНЮ</a>
+                    <a class="nav-item" href="/main/main.html">МЕНЮ</a>
                     <a class="nav-item" href="@">ЗАКАЗЫ</a>
-                    <a class="nav-item" href="login/login.html">ВОЙТИ</a>  <!--p>login/login.html </p-->
+                    <a class="nav-item" href="/login/login.html">ВОЙТИ</a>  <!--p>login/login.html </p-->
                 </div>
                     <div>
                         <a href="#" class="cart">
                             <div>
-                                <img src="cart.png" width="50" height="50" alt="" class="img-cart">
+                                <img src="/cart.png" width="80" height="80" alt="" class="img-cart">
                             </div>
                                 <div class="text-cart">
                                     ЗАКАЗАТЬ
@@ -61,7 +63,7 @@
 
 
     <div class="container container2 py-2">
-        <div class="container container3 ">
+        <div class="container3 ">
             <nav class="navbar navbar-expand-lg bg-body-tertiary">
                 <div class="col px-2">
                     <select class="form-select" aria-label="Пример выбора по умолчанию">
@@ -76,9 +78,9 @@
                         <option value="1">по имени от А-Я</option>
                         <option value="2">по имени от Я-А</option>
                         <option value="3">по возрастанию цены</option>
-                        <option value="3">по убыванию цены</option>
-                        <option value="3">по возрастанию  рейтинга</option>
-                        <option value="3">по убыванию  рейтинга</option>
+                        <option value="4">по убыванию цены</option>
+                        <option value="5">по возрастанию  рейтинга</option>
+                        <option value="6">по убыванию  рейтинга</option>
                       </select>
                 </div>
                 <div class="col px-2">
@@ -92,61 +94,12 @@
                   </div>
                 </nav>
         </div>
-        <div class="container py-2">
-            <div class="container">
-                <div class="row row-cols-1 row-cols-md-4 g-2">
-                  <div class="col">
-                    <div class="card" style="width: 18rem;">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">WOK</h5>
-                          <h6 class="card-subtitle mb-2 text-body-secondary">Подзаголовок карточки</h6>
-                          <input type="range" class="form-range" id="customRange1">
-                          <p class="card-text">Небольшой пример текста, который должен основываться на названии карты и составлять основную часть содержимого карты.</p>
-                        </div>
-                          <div class="card-footer text-body-secondary">
-                            <div class="row align-items-start">
-                                <div class="col">
-                                  Цена - 250р
-                                </div>
-                                <div class="col">
-                                    <button type="button" class="btn btn-primary">В корзину</button>
-                                </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col">
-                    <div class="card" style="width: 18rem;">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">WOK</h5>
-                          <h6 class="card-subtitle mb-2 text-body-secondary">Подзаголовок карточки</h6>
-                          <input type="range" class="form-range" id="customRange1">
-                          <p class="card-text">Небольшой пример текста, который должен основываться на названии карты и составлять основную часть содержимого карты.</p>
-                        </div>
-                          <div class="card-footer text-body-secondary">
-                            <div class="row align-items-start">
-                                <div class="col">
-                                  Цена - 250р
-                                </div>
-                                <div class="col">
-                                    <button type="button" class="btn btn-primary">В корзину</button>
-                                </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col">
-                    Колонка
-                  </div>
-                  <div class="col">
-                    Колонка
-                  </div>
+        <div class="py-2">
+                <div class="row row-cols-1 row-cols-md-4 g-4">
                 </div>
-              </div>  
         </div>
     </div>
 </div>
+
 </body>
 </html>

@@ -38,18 +38,54 @@ function createCard(data) {
     cardContainerWrapper.appendChild(cardContainer);
   }
   
-  async function get(url, token) {
+  function updatePageNumberInURL(pageNumber) {
+    const url = new URL(window.location.href);
+    url.searchParams.set('page', pageNumber);
+    window.history.pushState({}, '', url);
+  }
+
+  function sortCards(sortType, data) {
+    if(sortType === 'price'){
+      data.dishes.sort((a, b) => a.price - b.price);
+    }
+    if(sortType === '-price'){
+      data.dishes.sort((a, b) => b.price - a.price);
+    }
+    if(sortType ==='rating'){
+      data.dishes.sort((a, b) => a.rating - b.rating);
+    }
+    if(sortType === '-rating'){
+      data.dishes.sort((a, b) => b.rating - a.rating);
+    }
+    if(sortType === 'name'){
+      data.dishes.sort((a, b) => a.name.localeCompare(b.name));
+    }
+    if(sortType === '-name'){
+      data.dishes.sort((b, a) => a.name.localeCompare(b.name));
+    }
+  }
+
+
+  async function get(url, token, sortType) {
     return fetch(url, {
       method: 'GET',
       headers: new Headers({
         "Authorization": `Bearer ${token}`
       }),
     })
-    .then(response => response.json())
+    .then(response => response.json())//.then(data => {console.log(data
+      //)})
     .then(data => {
+
+      sortCards(sortType, data);
+
       data.dishes.forEach(dish => {
         createCard(dish);
       });
+      {console.log(data)}
+      updatePageNumberInURL(pagination
+        );
+      
     })
     .catch(error => {
       console.error('Ошибка', error);
@@ -57,10 +93,17 @@ function createCard(data) {
   }
   
   const url = "https://food-delivery.kreosoft.ru/api/dish";
-  get(url);
 
-  cardContainer.addEventListener('click', function() {
-    const dishId = this.getAttribute('data-id');
-    window.location.href = `dish.html?id=${dishId}`;
-  });
-  
+  const sortSelect = document.getElementById('sortSelect');
+sortSelect.addEventListener('change', (event) => {
+  const sortType = event.target.value;
+  const cardContainerWrapper = document.querySelector('.row-cols-1.row-cols-md-4.g-4');
+  cardContainerWrapper.innerHTML = '';
+  get(url, 0, sortType);
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Ваш код функции, которую нужно выполнить один раз при загрузке страницы
+  const url = "https://food-delivery.kreosoft.ru/api/dish";
+  get(url);
+});

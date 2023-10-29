@@ -32,7 +32,7 @@
 
 
     
-  <script src="/main/main.js"></script>
+
 
 </head>
 <body>
@@ -74,14 +74,15 @@
                       </select>
                 </div>
                 <div class="col px-2">
-                    <select class="form-select" aria-label="Пример выбора по умолчанию">
-                        <option value="1">по имени от А-Я</option>
-                        <option value="2">по имени от Я-А</option>
-                        <option value="3">по возрастанию цены</option>
-                        <option value="4">по убыванию цены</option>
-                        <option value="5">по возрастанию  рейтинга</option>
-                        <option value="6">по убыванию  рейтинга</option>
+                    <select id="sortSelect" class="form-select" aria-label="Пример выбора по умолчанию">
+                        <option value="name" data-sort-type="text">по имени от А-Я</option>
+                        <option value="-name" data-sort-type="text">по имени от Я-А</option>
+                        <option value="price" data-sort-type="numeric">по возрастанию цены</option>
+                        <option value="-price" data-sort-type="numeric">по убыванию цены</option>
+                        <option value="rating" data-sort-type="numeric">по возрастанию рейтинга</option>
+                        <option value="-rating" data-sort-type="numeric">по убыванию рейтинга</option>
                       </select>
+                      
                 </div>
                 <div class="col px-2">
                     <div class="form-check form-switch">
@@ -94,12 +95,34 @@
                   </div>
                 </nav>
         </div>
-        <div class="py-2">
+        <div class=" py-2">
                 <div class="row row-cols-1 row-cols-md-4 g-4">
                 </div>
         </div>
+
+        <nav aria-label="Пример навигации по страницам">
+            <ul class="pagination" id="pagination">
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Предыдущая">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Следующая">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+
     </div>
 </div>
 
 </body>
+
+<script src="/main/main.js"></script>
+
 </html>

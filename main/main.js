@@ -44,7 +44,7 @@ function createCard(data) {
     window.history.pushState({}, '', url);
   }
 
-  function sortCards(sortType, data) {
+/*  function sortCards(sortType, data) {
     if(sortType === 'price'){
       data.dishes.sort((a, b) => a.price - b.price);
     }
@@ -63,10 +63,10 @@ function createCard(data) {
     if(sortType === '-name'){
       data.dishes.sort((b, a) => a.name.localeCompare(b.name));
     }
-  }
+  }*/
 
 
-  async function get(url, token, sortType) {
+  async function get(url, token) {
     return fetch(url, {
       method: 'GET',
       headers: new Headers({
@@ -77,24 +77,62 @@ function createCard(data) {
       //)})
     .then(data => {
 
-      sortCards(sortType, data);
+      //sortCards(sortType, data);
 
       data.dishes.forEach(dish => {
         createCard(dish);
       });
+      maxPagination = data.pagination.count;
+      updatePagination(maxPagination);
+      {console.log(maxPagination)}
       {console.log(data)}
-      updatePageNumberInURL(pagination
-        );
-      
     })
     .catch(error => {
       console.error('Ошибка', error);
     });
   }
   
-  const url = "https://food-delivery.kreosoft.ru/api/dish";
+  let maxPagination;
+  let pageNumber = 1; // Инициализируем переменную pageNumber
 
-  const sortSelect = document.getElementById('sortSelect');
+  const url = `https://food-delivery.kreosoft.ru/api/dish?page=1`;
+  get(url);
+  updatePageNumberInURL(pageNumber);
+
+  const pagination = document.getElementById('pagination');
+  pagination.addEventListener('click', (event) => {
+    event.preventDefault();
+    const link = event.target;
+    
+    if (link.innerText === '«') {
+      const currentPage = document.querySelector('.page-item.active .page-link');
+      //console.log(currentPage);
+      pageNumber = pageNumber - 1; // Получаем предыдущий номер страницы
+      //console.log(pageNumber);
+    } else if (link.innerText === '»') {
+      const currentPage = document.querySelector('.page-item.active .page-link');
+      pageNumber = pageNumber + 1; // Получаем следующий номер страницы
+      //console.log(pageNumber);
+    } else {
+      pageNumber = parseInt(link.innerText); // Получаем номер страницы из текста ссылки
+      console.log(pageNumber);
+    }
+    if (pageNumber >= 1 && pageNumber <=maxPagination)  {
+      const cardContainerWrapper = document.querySelector('.row-cols-1.row-cols-md-4.g-4');
+      cardContainerWrapper.innerHTML = '';
+      const url = `https://food-delivery.kreosoft.ru/api/dish?page=${pageNumber}`;
+      get(url);
+      updatePageNumberInURL(pageNumber);
+    } else if (pageNumber <= 1){
+      pageNumber = 1;
+    } else if (pageNumber >= maxPagination){
+      pageNumber = maxPagination;
+    }
+  });
+
+
+
+ /* const sortSelect = document.getElementById('sortSelect');
 sortSelect.addEventListener('change', (event) => {
   const sortType = event.target.value;
   const cardContainerWrapper = document.querySelector('.row-cols-1.row-cols-md-4.g-4');
@@ -106,4 +144,42 @@ document.addEventListener('DOMContentLoaded', () => {
   // Ваш код функции, которую нужно выполнить один раз при загрузке страницы
   const url = "https://food-delivery.kreosoft.ru/api/dish";
   get(url);
-});
+});*/
+
+// Генерация элементов списка страниц
+function updatePagination(maxPagination) {
+  while (pagination.firstChild) {
+    pagination.removeChild(pagination.firstChild);
+  }
+
+for (let i = 1; i <= maxPagination; i++) {
+  console.log(maxPagination);
+  const li = document.createElement('li');
+  li.classList.add('page-item');
+  const a = document.createElement('a');
+  a.classList.add('page-link');
+  a.href = '#';
+  a.innerText = i;
+  li.appendChild(a);
+  pagination.appendChild(li);
+}
+const firstPageLink = document.createElement('a');
+firstPageLink.classList.add('page-link');
+firstPageLink.href = '#';
+firstPageLink.innerHTML = '&laquo;'; // Символ «
+const lastPageLink = document.createElement('a');
+lastPageLink.classList.add('page-link');
+lastPageLink.href = '#';
+lastPageLink.innerHTML = '&raquo;'; // Символ »
+
+const firstPageItem = document.createElement('li');
+firstPageItem.classList.add('page-item');
+firstPageItem.appendChild(firstPageLink);
+
+const lastPageItem = document.createElement('li');
+lastPageItem.classList.add('page-item');
+lastPageItem.appendChild(lastPageLink);
+
+pagination.insertBefore(firstPageItem, pagination.firstChild);
+pagination.appendChild(lastPageItem);
+}

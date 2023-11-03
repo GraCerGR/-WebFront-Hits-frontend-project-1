@@ -35,4 +35,4 @@ queryString = queryString.slice(1,-1);
   const url = `https://food-delivery.kreosoft.ru/api/dish/{${queryString}}`;
   get(url);
   
-  
+  //

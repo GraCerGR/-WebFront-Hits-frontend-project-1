@@ -99,6 +99,33 @@ function createCard(data) {
   get(url);
   updatePageNumberInURL(pageNumber);
 
+
+  function applyFilters() {
+    const categorySelect = document.querySelector('.form-select');
+    const sortSelect = document.getElementById('sortSelect');
+    const vegetarianCheckbox = document.getElementById('flexSwitchCheckDefault');
+  
+    const category = categorySelect.value;
+    const sortType = sortSelect.value;
+    const vegetarianOnly = vegetarianCheckbox.checked;
+  
+    let url = `https://food-delivery.kreosoft.ru/api/dish?`;
+
+  // Добавляем параметры фильтрации и сортировки в URL
+  if (category !== "All") {
+    url += `categories=${category}&`;
+  }
+  url += `vegetarian=${vegetarianOnly}&sorting=${sortType}&page=1`;
+
+  const cardContainerWrapper = document.querySelector('.row-cols-1.row-cols-md-4.g-4');
+  cardContainerWrapper.innerHTML = '';
+  get(url);
+  updatePageNumberInURL(1);
+}
+  
+  const applyButton = document.querySelector('.btn-primary');
+  applyButton.addEventListener('click', applyFilters);
+
   const pagination = document.getElementById('pagination');
   pagination.addEventListener('click', (event) => {
     event.preventDefault();

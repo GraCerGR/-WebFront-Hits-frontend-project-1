@@ -156,3 +156,30 @@ body{
       max-width: 25%;
     }
   }
+
+
+  .rating-result {
+    width: 265px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .rating-result span {
+    padding: 0;
+    font-size: 29px;
+    margin: 0 1px;
+    line-height: 1;
+    color: lightgrey;
+    text-shadow: 1px 1px #bbb;
+  }
+  
+  .rating-result > span:before {
+    content: '★';
+  }
+  
+  .rating-result > span.active {
+    color: gold;
+    text-shadow: 1px 1px #c60;
+  }

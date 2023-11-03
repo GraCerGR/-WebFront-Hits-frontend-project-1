@@ -85,33 +85,13 @@
           <div class="container3 ">
             <h5 class="col-12 p-2">Адрес проживания</h5>
             <div class="col-12 p-2">
-            <label for="Subject" class="form-label" >Субъект РФ</label>
-            <select class="form-select" aria-label="Пример выбора по умолчанию" id="regionSelect">
-                <option value="1" data-subject="">Томская область</option>
-                <option value="2">Красноярский край</option>
-            </select>
-        </div>
-        <div class="col-12 p-2">
-            <label for="Subject" class="form-label" id="citySelect">Следующий элемент адреса</label>
-            <select class="form-select" aria-label="Пример выбора по умолчанию">
-                <option value="1">Томск</option>
-                <option value="2">Северск</option>
-            </select>
-        </div>
-        <div class="col-12 p-2">
-            <label for="Subject" class="form-label">Элемент улично-дорожной сети</label>
-            <select class="form-select" aria-label="Пример выбора по умолчанию" id="streetSelect">
-                <option value="1">пр-кт Ленина</option>
-                <option value="2">пр-кт Южная</option>
-            </select>
-        </div>
-        <div class="col-12 p-2">
-            <label for="Subject" class="form-label">Здание / сооружение</label>
-            <select class="form-select" aria-label="Пример выбора по умолчанию" id="buildingSelect">
-                <option value="1">д. 10</option>
-                <option value="2">д. 20</option>
-            </select>
-        </div>
+                <label for="Subject" class="form-label">Субъект РФ</label>
+                <input list="regionSelect" class="regionSelect form-control">
+                <datalist id="regionSelect">
+                    <option value="1281271"></option>
+                    <option value="s"></option>
+                </datalist>
+            </div>
         </div>
 
         <div class="col-12 py-1">
@@ -132,3 +112,106 @@
 <script src="/registration/registration.js"></script>
 
 </html>
+
+<!--p>
+    <body>
+    <div class="header">
+        <div class="container">
+            <div class="header-line">
+                <div class="header-logo">
+                    <img src="/logo.png" width="100" height="100"; alt="">
+                </div>
+                <div class="nav">
+                    <a class="nav-item" href="/main/main.html">МЕНЮ</a>
+                    <a class="nav-item" href="@">ЗАКАЗЫ</a>
+                    <a class="nav-item" href="/login/login.html">ВОЙТИ</a>  <!--p>login/login.html 
+                </div>
+                <div>
+                    <a href="#" class="cart">
+                        <div>
+                            <img src="/cart.png" width="80" height="80" alt="" class="img-cart">
+                        </div>
+                            <div class="text-cart">
+                                ЗАКАЗАТЬ
+                            </div>
+                    </a>
+                </div>
+        </div>
+    </div>
+
+
+<div class="container container2 py-3">
+    <h1>Регистрация нового пользователя</h1>
+    <div class="col-12 py-1">
+        <label for="inputAddress" class="form-label">ФИО</label>
+        <input type="text" class="form-control" id="inputAddress">
+      </div>
+      <div class="col-12 py-1">
+        <label for="POL" class="form-label">Пол</label>
+        <select class="form-select" aria-label="Пример выбора по умолчанию">
+            <option value="1">Мужчина</option>
+            <option value="2">Женщина</option>
+        </select>
+      </div>
+      <div class="col-12 py-1">
+        <label for="input" class="form-label">Телефон</label>
+        <input type="text" class="form-control" id="inputAddress">
+      </div>
+      <form>
+        <div class="form-group col-12 py-1">
+          <label for="inputDate" class="form-label">День рождения</label>
+          <input type="date" class="form-control">
+        </div>
+      </form>
+
+      <div class="container3 ">
+        <h5 class="col-12 p-2">Адрес проживания</h5>
+        <div class="col-12 p-2">
+        <label for="Subject" class="form-label" >Субъект РФ</label>
+        <select class="form-select" aria-label="Пример выбора по умолчанию" id="regionSelect">
+            <option value="1" data-subject="">Томская область</option>
+            <option value="2">Красноярский край</option>
+        </select>
+    </div>
+    <div class="col-12 p-2">
+        <label for="Subject" class="form-label" id="citySelect">Следующий элемент адреса</label>
+        <select class="form-select" aria-label="Пример выбора по умолчанию">
+            <option value="1">Томск</option>
+            <option value="2">Северск</option>
+        </select>
+    </div>
+    <div class="col-12 p-2">
+        <label for="Subject" class="form-label">Элемент улично-дорожной сети</label>
+        <select class="form-select" aria-label="Пример выбора по умолчанию" id="streetSelect">
+            <option value="1">пр-кт Ленина</option>
+            <option value="2">пр-кт Южная</option>
+        </select>
+    </div>
+    <div class="col-12 p-2">
+        <label for="Subject" class="form-label">Здание / сооружение</label>
+        <select class="form-select" aria-label="Пример выбора по умолчанию" id="buildingSelect">
+            <option value="1">д. 10</option>
+            <option value="2">д. 20</option>
+        </select>
+    </div>
+    </div>
+
+    <div class="col-12 py-1">
+        <label for="inputEmail" class="form-label">Email</label>
+        <input type="text" class="form-control" id="inputEmail">
+      </div>
+      <div class="col-12 py-1">
+        <label for="inputPassword" class="form-label">Пароль</label>
+        <input type="text" class="form-control" id="inputPassword">
+      </div>
+
+      <button type="button" class="btn btn-primary" id="registrationButton">Зарегистрироваться</button>
+
+</div>
+</div>
+</body>
+
+<script src="/registration/registration.js"></script>
+
+</html>
+</p-->

@@ -79,68 +79,105 @@ loginButton.addEventListener('click', function() {
   };
 console.log(data);
 post(url, data);
-});*/
+});
 
 
-async function get(url, token, nextElementLabel) {
-    return fetch(url, {
-        method: 'GET',
-        headers: new Headers({
-            "Authorization": `Bearer ${token}`
-        }),
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log(data);
-        // Генерация следующего элемента
-        generateNextElement(nextElementLabel, data);
-    })
-    .catch(error => {
-        console.error('Ошибка', error);
-    });
+async function get(url, token) { 
+  return fetch(url, { 
+    method: 'GET', 
+    headers: new Headers({ 
+      "Authorization": `Bearer ${token}` 
+    }), 
+  }) 
+  .then(response => response.json()) 
+  .then(data => { 
+    console.log(data); 
+    // Обновление списка селекта "Следующий элемент адреса" 
+    updateStreetSelect(data); 
+  }) 
+  .catch(error => { 
+    console.error('Ошибка', error); 
+  }); 
+} 
+// Функция для обновления списка селекта "Следующий элемент адреса" 
+function updateStreetSelect(data) { 
+  const streetSelect = document.getElementById('streetSelect'); 
+  // Очистка селекта 
+  streetSelect.innerHTML = ''; 
+  // Добавление полученных данных в селект 
+  data.forEach(street => { 
+    const option = document.createElement('option'); 
+    option.value = street.objectId; 
+    option.text = street.text; 
+    streetSelect.appendChild(option); 
+  }); 
+} 
+// Обработчик события выбора селекта "Субъект РФ" 
+document.querySelectorAll('.regionSelect.form-control').forEach(function(input) { 
+  input.addEventListener('input', function() { 
+    const parentObjectId = this.value; 
+    const url = `https://food-delivery.kreosoft.ru/api/address/search?parentObjectId=${parentObjectId}`; 
+    console.log(url); 
+    console.log(parentObjectId); 
+    get(url); 
+  }); 
+}); */
+
+async function get(url, token) {
+  return fetch(url, {
+    method: 'GET',
+    headers: new Headers({
+      "Authorization": `Bearer ${token}`
+    }),
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+    // Обновление списка селекта "Следующий элемент адреса"
+    updateStreetSelect(data);
+  })
+  .catch(error => {
+    console.error('Ошибка', error);
+  });
 }
 
-// Функция для генерации следующего элемента
-function generateNextElement(nextElementLabel, data) {
-    const container = document.querySelector('.container3');
-    const newElement = document.createElement('div');
-    newElement.className = 'col-12 p-2';
-
-    const label = document.createElement('label');
-    label.htmlFor = 'Subject';
-    label.className = 'form-label';
-    label.textContent = nextElementLabel;
-
-    const input = document.createElement('input');
-    input.className = 'regionSelect form-control';
-    input.setAttribute('list', 'streetSelect');
-
-    const datalist = document.createElement('datalist');
-    datalist.id = 'streetSelect';
-
-    // Добавление полученных данных в список
-    data.forEach(street => {
-        const option = document.createElement('option');
-        option.value = street.objectId;
-        option.textContent = street.text;
-        datalist.appendChild(option);
-    });
-
-    newElement.appendChild(label);
-    newElement.appendChild(input);
-    newElement.appendChild(datalist);
-
-    container.appendChild(newElement);
+// Функция для обновления списка селекта "Следующий элемент адреса"
+function updateStreetSelect(data) {
+  const streetSelect = document.getElementById('streetSelect');
+  // Очистка селекта
+  streetSelect.innerHTML = '';
+  // Добавление полученных данных в селект
+  data.forEach(street => {
+    const option = document.createElement('option');
+    option.value = street.objectId;
+    option.text = street.text;
+    streetSelect.appendChild(option);
+  });
 }
+let parentObjectId = '';
+document.querySelectorAll('.regionSelect').forEach(function(input) {
+  input.addEventListener('input', function() {
+    const query = this.value;
+    const encodedQuery = encodeURIComponent(query);
+    let url = `https://food-delivery.kreosoft.ru/api/address/search?query=${encodedQuery}`;
+    if (parentObjectId) {
+      url += `&parentObjectId=${parentObjectId}`;
+    }
+    console.log(url);
+    console.log(query);
+    get(url);
+  });
+});
 
-// Обработчик события выбора селекта "Субъект РФ"
-document.querySelectorAll('.regionSelect.form-control').forEach(function(input) {
-    input.addEventListener('input', function() {
-        const parentObjectId = this.value;
-        const url = `https://food-delivery.kreosoft.ru/api/address/search?parentObjectId=${parentObjectId}`;
-        const nextElementLabel = 'Следующий элемент';
-        console.log(url);
-        console.log(parentObjectId);
-        get(url, 0, nextElementLabel);
-    });
+$("input").on('input', function () {
+  var inputValue = this.value;
+  if ($('datalist').find('option').filter(function(){
+      return this.value == inputValue;        
+  }).length) {
+    parentObjectId = this.value;
+    const url = `https://food-delivery.kreosoft.ru/api/address/search?parentObjectId=${parentObjectId}`;
+    console.log(url);
+    console.log(parentObjectId);
+    get(url);
+  }
 });

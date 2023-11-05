@@ -13,43 +13,37 @@ async function post(url, data=null, token){
 }
 
 function createCard(data) {
-  const cardContainerWrapper = document.querySelector('.row-cols-1.row-cols-md-4.g-4');
-  const cardContainer = document.createElement('div');
-  cardContainer.classList.add('col');
+  const cardContainerWrapper = document.querySelector('.list-group.list-group-flush');
+  const cardContainer = document.createElement('ul');
+  cardContainer.classList.add('list-group');
   const queryString = new URLSearchParams(data.id).toString();
   const url = `/dish/dish.html?${queryString}`;
   cardContainer.innerHTML = `
-      <div class="card h-100 item" style="width: 19rem; data-id="${data.id}">
-          <a href="${url}" class="item">
-              <img src="${data.image}" class="card-img-top">
-              <div class="card-body">
-                  <h5 data-name="${data.name}">${data.name}</h5>
-              </a>
-              <p class="card-text" data-description="${data.amount}"> Количество: ${data.amount}</p>
+  <ul class="list-group">
+  <li class="card h-100 item w-100" style="width: 19rem; data-id="${data.id}">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-4">
+            <img src="${data.image}" class="card-img-top" width="100">
           </div>
-          <ul class="list-group list-group-flush">
-                  <li class="list-group-item" data-price="Цена">Цена/шт: ${data.price} руб.</li>
-                  <li class="list-group-item" data-price="Общая цена">Общая цена: ${data.totalPrice} руб.</li>
-         </ul>
+          <div class="col-md-8">
+            <div class="d-flex flex-column justify-content-between h-100">
+              <div>
+                <h5 data-name="${data.name}">${data.name}</h5>
+                <p class="card-text" data-description="${data.amount}">Количество: ${data.amount}</p>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item" data-price="Цена">Цена/шт: ${data.price} руб.</li>
+                <li class="list-group-item" data-price="Общая цена">Общая цена: ${data.totalPrice} руб.</li>
+              </ul>
+            </div>
           </div>
+        </div>
       </div>
+  </li>
+</ul>
   `;
   cardContainerWrapper.appendChild(cardContainer);
-}
-
-function getRatingStars(rating) {
-  const fullStars = Math.floor(rating);
-  const emptyStars = 10 - fullStars;
-  const decimalPart = rating % 1;
-  let starsHTML = '';
-  for (let i = 0; i < fullStars; i++) {
-      starsHTML += '<span class="active"></span>';
-  }
-  for (let i = 0; i < emptyStars; i++) {
-      starsHTML += '<span></span>';
-  }
-
-  return starsHTML;
 }
 
   async function get(url, token) {

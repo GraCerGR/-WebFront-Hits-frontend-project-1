@@ -1,15 +1,24 @@
 let token = localStorage.getItem('token');
 console.log(token);
 
-async function post(url, data=null, token){
-  return fetch(url, {
-      method: 'POST',
-      body: JSON.stringify(data),
-      headers: new Headers({
-          'Content-Type' : 'application/json',
-          "Authorization": `Bearer ${token}`
-      })
-  });//.then(response => response.json());
+
+
+async function post(url, data = null, token) {
+  const response = await fetch(url, {
+    method: 'POST',
+    body: JSON.stringify(data),
+    headers: new Headers({
+      'Content-Type': 'application/json',
+      "Authorization": `Bearer ${token}`
+    })
+  });
+
+  if (response.status === 401) {
+    // Выводите уведомление "Войдите в аккаунт" здесь
+    alert("Войдите в аккаунт");
+  }
+
+  return response;
 }
 
 function createCard(data) {

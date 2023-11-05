@@ -31,6 +31,9 @@
 
 
 
+    
+
+
 </head>
 <body>
     <div class="header">
@@ -59,51 +62,19 @@
         </div>
     
 
-    <div class="container container2 py-3">
-        <h1>Профиль</h1>
-        <form>
-          <div class="row mb-3 ">
-            <label for="inputName" class="col-sm-2 col-form-label">ФИО</label>
-            <div class="col-sm-10">
-              <input type="fullName" class="form-control" id="inputName" readonly>
-            </div>
-          </div>
-          <div class="row mb-3">
-            <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
-            <div class="col-sm-10">
-              <input type="email" class="form-control" id="inputEmail" readonly>
-            </div>
-          </div>
-          <div class="row mb-3">
-            <label for="inputData" class="col-sm-2 col-form-label">День рождения</label>
-            <div class="col-sm-10">
-              <input type="birthDate" class="form-control" id="inputData" readonly>
-            </div>
-          </div>
-          <div class="row mb-3">
-            <label for="inputMale" class="col-sm-2 col-form-label">Пол</label>
-            <div class="col-sm-10">
-              <input type="gender" class="form-control" id="inputMale" readonly>
-            </div>
-          </div>
-          <div class="row mb-3">
-            <label for="inputNumber" class="col-sm-2 col-form-label">Телефон</label>
-            <div class="col-sm-10">
-              <input type="phoneNumber" class="form-control" id="inputNumber" readonly>
-            </div>
-          </div>
-          <div class="row mb-3">
-            <label for="inputAddressId" class="col-sm-2 col-form-label">Адрес</label>
-            <div class="col-sm-10">
-              <input type="addressId" class="form-control" id="inputAddressId" readonly>
-            </div>
-          </div>
-          
-          <button type="submit" class="btn btn-primary">Изменить</button>
-        </form>
+
+    <div class="container container2 py-2">
+        <div class="container3 ">
+        <div class=" p-2">
+            <ul class="list-group list-group-flush">
+                <div id="empty-cart-message" style="display: none;">Заказов нет</div>
+            </ul>
+        </div>
+    </div>
 </div>
+
 </body>
 
-<script type="module" src="/profile/profile.js"></script>
+<script src="/orders/orders.js"></script>
 
 </html>

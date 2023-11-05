@@ -61,34 +61,40 @@
     <div class="container container2 py-3">
         <h1>Профиль</h1>
         <form>
-          <div class="row mb-3">
+          <div class="row mb-3 ">
             <label for="inputName" class="col-sm-2 col-form-label">ФИО</label>
             <div class="col-sm-10">
-              <input type="name" class="form-control" id="inputName">
+              <input type="fullName" class="form-control" id="inputName" readonly>
             </div>
           </div>
           <div class="row mb-3">
             <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
             <div class="col-sm-10">
-              <input type="email" class="form-control" id="inputEmail">
+              <input type="email" class="form-control" id="inputEmail" readonly>
             </div>
           </div>
           <div class="row mb-3">
             <label for="inputData" class="col-sm-2 col-form-label">День рождения</label>
             <div class="col-sm-10">
-              <input type="data" class="form-control" id="inputData">
+              <input type="birthDate" class="form-control" id="inputData" readonly>
             </div>
           </div>
           <div class="row mb-3">
             <label for="inputMale" class="col-sm-2 col-form-label">Пол</label>
             <div class="col-sm-10">
-              <input type="male" class="form-control" id="inputMale">
+              <input type="gender" class="form-control" id="inputMale" readonly>
             </div>
           </div>
           <div class="row mb-3">
             <label for="inputNumber" class="col-sm-2 col-form-label">Телефон</label>
             <div class="col-sm-10">
-              <input type="number" class="form-control" id="inputNumber">
+              <input type="phoneNumber" class="form-control" id="inputNumber" readonly>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <label for="inputAddressId" class="col-sm-2 col-form-label">Адрес</label>
+            <div class="col-sm-10">
+              <input type="addressId" class="form-control" id="inputAddressId" readonly>
             </div>
           </div>
           
@@ -97,6 +103,6 @@
 </div>
 </body>
 
-<script src="/registration/registration copy.js"></script>
+<script type="module" src="/profile/profile.js"></script>
 
 </html>

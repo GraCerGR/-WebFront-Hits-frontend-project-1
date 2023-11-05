@@ -9,7 +9,7 @@ async function post(url, data=null, token){
           'Content-Type' : 'application/json',
           "Authorization": `Bearer ${token}`
       })
-  }).then(response => response.json());
+  });//.then(response => response.json());
 }
 
 function createCard(data) {

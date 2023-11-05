@@ -65,55 +65,16 @@
 
     <div class="container container2 py-2">
         <div class="container3 ">
-            <nav class="navbar navbar-expand-lg bg-body-tertiary">
-                <div class="col px-2">
-                    <select class="form-select" aria-label="Пример выбора по умолчанию">
-                        <option selected value="All">Все товары</option>
-                        <option value="WOK">WOK</option>
-                        <option value="Pizza">Пицца</option>
-                        <option value="Soup">Супы</option>
-                        <option value="Dessert">Десерт</option>
-                        <option value="Drink">Напиток</option>
-
-                      </select>
-                </div>
-                <div class="col px-2">
-                    <select id="sortSelect" class="form-select" aria-label="Пример выбора по умолчанию">
-                        <option value="NameAsc" data-sort-type="text">по имени от А-Я</option>
-                        <option value="NameDesc" data-sort-type="text">по имени от Я-А</option>
-                        <option value="PriceAsc" data-sort-type="numeric">по возрастанию цены</option>
-                        <option value="PriceDesc" data-sort-type="numeric">по убыванию цены</option>
-                        <option value="RatingAsc" data-sort-type="numeric">по возрастанию рейтинга</option>
-                        <option value="RatingDesc" data-sort-type="numeric">по убыванию рейтинга</option>
-                      </select>
-                      
-                </div>
-                <div class="col px-2">
-                    <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                        <label class="form-check-label" for="flexSwitchCheckDefault">Показывать только вегетарианские</label>
-                      </div>
-                </div>
-                <div class="col d-flex justify-content-end px-2">
-                    <button type="button" class="btn btn-primary">Применить</button>
-                  </div>
-                </nav>
+        <div class=" p-2">
+            <ul class="list-group list-group-flush">
+                <div id="empty-cart-message" style="display: none;">Корзина пуста</div>
+            </ul>
         </div>
-        <div class=" py-2">
-                <div class="row row-cols-1 row-cols-md-4 g-4">
-                </div>
-        </div>
-
-        <nav aria-label="Пример навигации по страницам">
-          <ul class="pagination" id="pagination">
-          </ul>
-        </nav>
-
     </div>
 </div>
 
 </body>
 
-<script src="/main/main.js"></script>
+<script src="/cart/cart.js"></script>
 
 </html>

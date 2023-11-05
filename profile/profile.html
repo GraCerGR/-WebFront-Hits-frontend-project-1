@@ -60,78 +60,50 @@
     
 
     <div class="container container2 py-3">
-        <h1>Регистрация нового пользователя</h1>
-        <div class="col-12 py-1">
-            <label for="inputAddress" class="form-label">ФИО</label>
-            <input type="text" class="form-control" id="inputAddress">
-          </div>
-          <div class="col-12 py-1">
-            <label for="POL" class="form-label">Пол</label>
-            <select class="form-select" aria-label="Пример выбора по умолчанию">
-                <option value="1">Мужчина</option>
-                <option value="2">Женщина</option>
-            </select>
-          </div>
-          <div class="col-12 py-1">
-            <label for="input" class="form-label">Телефон</label>
-            <input type="text" class="form-control" id="inputAddress">
-          </div>
-          <form>
-            <div class="form-group col-12 py-1">
-              <label for="inputDate" class="form-label">День рождения</label>
-              <input type="date" class="form-control">
+        <h1>Профиль</h1>
+        <form>
+          <div class="row mb-3 ">
+            <label for="inputName" class="col-sm-2 col-form-label">ФИО</label>
+            <div class="col-sm-10">
+              <input type="fullName" class="form-control" id="inputName" readonly>
             </div>
-          </form>
-
-          <div class="container3 "> 
-            <h5 class="col-12 p-2">Адрес проживания</h5> 
-              <div class="col-12 p-2"> 
-                <label for="Subject" class="form-label">Следующий элемент</label> 
-                <input list="streetSelect" class="regionSelect form-control"> 
-                <datalist id="streetSelect"> 
-                </datalist> 
-              </div> 
-              <div class="col-12 p-2"> 
-                <label for="Subject" class="form-label">Следующий элемент</label> 
-                <input list="streetSelect" class="regionSelect form-control"> 
-                <datalist id="streetSelect"> 
-                </datalist> 
-              </div> 
-              <div class="col-12 p-2"> 
-                <label for="Subject" class="form-label">Следующий элемент</label> 
-                <input list="streetSelect" class="regionSelect form-control"> 
-                <datalist id="streetSelect"> 
-                </datalist> 
-              </div> 
-              <div class="col-12 p-2"> 
-                <label for="Subject" class="form-label">Следующий элемент</label> 
-                <input list="streetSelect" class="regionSelect form-control"> 
-                <datalist id="streetSelect"> 
-                </datalist> 
-              </div>
-              <div class="col-12 p-2"> 
-                <label for="Subject" class="form-label">Следующий элемент</label> 
-                <input list="streetSelect" class="regionSelect form-control"> 
-                <datalist id="streetSelect"> 
-                </datalist> 
-              </div>  
-</div> 
-
-        <div class="col-12 py-1">
-            <label for="inputEmail" class="form-label">Email</label>
-            <input type="text" class="form-control" id="inputEmail">
           </div>
-          <div class="col-12 py-1">
-            <label for="inputPassword" class="form-label">Пароль</label>
-            <input type="text" class="form-control" id="inputPassword">
+          <div class="row mb-3">
+            <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-10">
+              <input type="email" class="form-control" id="inputEmail" readonly>
+            </div>
           </div>
-
-          <button type="button" class="btn btn-primary" id="registrationButton">Зарегистрироваться</button>
-
-    </div>
+          <div class="row mb-3">
+            <label for="inputData" class="col-sm-2 col-form-label">День рождения</label>
+            <div class="col-sm-10">
+              <input type="birthDate" class="form-control" id="inputData" readonly>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <label for="inputMale" class="col-sm-2 col-form-label">Пол</label>
+            <div class="col-sm-10">
+              <input type="gender" class="form-control" id="inputMale" readonly>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <label for="inputNumber" class="col-sm-2 col-form-label">Телефон</label>
+            <div class="col-sm-10">
+              <input type="phoneNumber" class="form-control" id="inputNumber" readonly>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <label for="inputAddressId" class="col-sm-2 col-form-label">Адрес</label>
+            <div class="col-sm-10">
+              <input type="addressId" class="form-control" id="inputAddressId" readonly>
+            </div>
+          </div>
+          
+          <button type="submit" class="btn btn-primary">Изменить</button>
+        </form>
 </div>
 </body>
 
-<script src="/registration/registration.js"></script>
+<script type="module" src="/profile/profile.js"></script>
 
 </html>

@@ -63,6 +63,12 @@ function createCard(data) {
     .then(response => response.json())//.then(data => {console.log(data
       //)})
     .then(data => {
+      if (data.length === 0) {
+        const emptyCartMessage = document.getElementById('empty-cart-message');
+        emptyCartMessage.style.display = 'block';
+        return;
+      }
+
 
       data.forEach(dish => {
         createCard(dish);

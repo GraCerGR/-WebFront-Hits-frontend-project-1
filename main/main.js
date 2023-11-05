@@ -1,9 +1,13 @@
-async function post(url, data=null){
+let token = localStorage.getItem('token');
+console.log(token);
+
+async function post(url, data=null, token){
   return fetch(url, {
       method: 'POST',
       body: JSON.stringify(data),
       headers: new Headers({
-          'Content-Type' : 'application/json'
+          'Content-Type' : 'application/json',
+          "Authorization": `Bearer ${token}`
       })
   }).then(response => response.json());
 }
@@ -38,6 +42,11 @@ function createCard(data) {
       </div>
   `;
   cardContainerWrapper.appendChild(cardContainer);
+
+  const addToCartButton = cardContainer.querySelector('.btn-primary');
+  addToCartButton.addEventListener('click', () => {
+    addToCart(data.id);
+  });
 }
 
 function getRatingStars(rating) {
@@ -201,4 +210,11 @@ lastPageItem.appendChild(lastPageLink);
 
 pagination.insertBefore(firstPageItem, pagination.firstChild);
 pagination.appendChild(lastPageItem);
+}
+
+
+async function addToCart(itemId) {
+  const url = `https://food-delivery.kreosoft.ru/api/basket/dish/${itemId}`;
+  const response = await post(url, {}, token);
+  console.log(response);
 }
